@@ -2,13 +2,20 @@ import React from "react";
 import "./index.less"
 import Header from './Header'
 import Body from './Body'
+import Nav from './Nav'
 
-const Layout = () => {
+const Layout = (props) => {
+    const {
+        children
+    } = props;
     return (
-        <div className="header">
+        <>
             <Header/>
-            <Body/>
-        </div>
+            <Nav/>
+            <Body>
+                {children}
+            </Body>
+        </>
     );
 };
 

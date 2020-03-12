@@ -1,11 +1,16 @@
 import React from "react";
 import "./index.less"
 
-const Body = () => {
+const Body = (props) => {
+    const {
+        children
+    } = props;
     return (
-        <div className="body">
-
-        </div>
+        <main className="body">
+            <div  className="body-main">
+                {children}
+            </div>
+        </main>
     );
 };
 

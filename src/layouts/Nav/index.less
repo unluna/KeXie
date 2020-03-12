@@ -1,0 +1,42 @@
+@import "../../assets/styles/color";
+
+.nav {
+  position: fixed;
+  top: 61px;
+  left: 0;
+  right: 0;
+  transition: all .2s;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: @white;
+  z-index: 99;
+
+  &-list {
+    height: 100%;
+    width: 960px;
+    display: flex;
+    align-items: center;
+
+
+    & li {
+      height: 100%;
+      padding-right: 12px;
+      user-select: none;
+      cursor: pointer;
+      color: @title-font-color;
+      font-family: "微软雅黑", "Georgia", "Comic Sans MS", "黑体", sans-serif;
+      line-height: 46px;
+      font-size: 14px;
+
+      &:hover{
+        color: @logo;
+      }
+
+      &:not(:first-child) {
+        padding-left: 12px;
+      }
+    }
+  }
+}
