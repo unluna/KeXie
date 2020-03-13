@@ -1,33 +1,33 @@
 import React, {useEffect, useState} from 'react';
-import Editor from 'for-editor';
 
 import Layout from '@/layouts';
 import MsgItem from '@/pages/MsgItem';
 import "./index.less";
 
-function Recommend() {
+function FE() {
+    // const [aMsgList, setAMsgList] = useState([]);
     const aMsgList = [
         {
-            type: "推荐",
+            type: "提问",
             user: "ShiYue",
             time: "46分钟前",
-            label: "关注",
+            label: "前端",
             title: "前端真好玩~~",
             good: 50,
             comment: 7
         },
         {
-            type: "推荐",
+            type: "提问",
             user: "ShiYue",
             time: "46分钟前",
-            label: "关注",
+            label: "前端",
             title: "前端真好玩~~",
             good: 50,
             comment: 7
         }
     ];
     return (
-        <div className="recommend">
+        <div className="fe">
             <Layout aside={true}>
                 <div className="main-page-content">
                     <ul className="main-page-content-header">
@@ -47,9 +47,8 @@ function Recommend() {
                     <div className="main-page-aside-item"/>
                 </aside>
             </Layout>
-            {/*<Editor value={value} onChange={(value) => handleChange(value)}/>*/}
         </div>
     );
 }
 
-export default Recommend;
+export default FE;
