@@ -20,6 +20,12 @@ function Recommend() {
                     </ul>
                     <ul className="main-page-content-main">
                         <MsgItem/>
+                        <MsgItem/>
+                        <MsgItem/>
+                        <MsgItem/>
+                        <MsgItem/>
+                        <MsgItem/>
+                        <MsgItem/>
                     </ul>
                 </div>
                 <aside className="main-page-aside">

@@ -1,23 +1,98 @@
 @import "../../assets/styles/color";
 
-.msg-item{
-  height: 113px;
+.msg-item {
+  height: 81px;
   padding: 18px 24px;
   background: @white;
-  border-bottom:1px solid @border-bottom;
-    &-hd{
-      height: 21px;
-      display: flex;
+  border-bottom: 1px solid @border-bottom;
+  cursor: pointer;
 
-      &-info,&-label{
-        font-size: 12px;
+  &:hover {
+    background: @msg-item-hover-bg;
+  }
 
-      }
-      &-info{
-        color: @msg-title-font-color;
-      }
-      &-label{
-        color: @msg-label-color;
+  &-hd {
+    height: 17px;
+    display: flex;
+
+
+    &-info, &-label {
+      height: 100%;
+      line-height: 17px;
+      font-size: 12px;
+      font-family: "微软雅黑", "Georgia", "Comic Sans MS", "黑体", sans-serif;
+    }
+
+    &-info {
+      color: @msg-hd-font-color;
+      padding-right: 15px;
+      position: relative;
+
+      &:not(:last-child)::after {
+        position: absolute;
+        content: "•";
+        right: 5px;
+        top: 0;
       }
     }
+
+    &-label {
+      width: 37px;
+      font-weight: 500;
+      color: @msg-label-color;
+    }
+  }
+
+  &-title {
+    height: 20px;
+    margin: 6px 0 12px 0;
+    color: @msg-title-font-color;
+    font-family: "微软雅黑", "Georgia", "Comic Sans MS", "黑体", sans-serif;
+    line-height: 20px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 1px;
+
+    &:visited {
+      color: @msg-title-visited-font-color;
+    }
+  }
+
+  &-action {
+    height: 26px;
+    display: flex;
+
+    &-item:not(:first-child) {
+      border: 1px solid @msg-action-border;
+    }
+
+    &-item:first-child {
+      border-bottom: 1px solid @msg-action-border;
+      border-top: 1px solid @msg-action-border;
+      border-left: 1px solid @msg-action-border;
+    }
+
+    &-item {
+      height: 24px;
+      padding: 0 10px;
+      display: flex;
+
+      &:hover {
+        background: @msg-action-hover-bg;
+      }
+
+      &-icon, &-num {
+        color: #b2bac2;
+        height: 100%;
+        line-height: 24px;
+      }
+
+      &-num {
+        font-weight: 700;
+        margin-left: .2em;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+      }
+    }
+  }
 }
