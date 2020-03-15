@@ -1,5 +1,5 @@
 import React from "react";
-import {BellOutlined} from "@ant-design/icons";
+import {BellOutlined, LikeOutlined,FireOutlined} from "@ant-design/icons";
 
 const Icon = (props) => {
 
@@ -8,6 +8,12 @@ const Icon = (props) => {
     } = props;
     const oComponent = {
         BellOutlined: <BellOutlined
+            {...props}
+        />,
+        LikeOutlined: <LikeOutlined
+            {...props}
+        />,
+        FireOutlined: <FireOutlined
             {...props}
         />,
     };

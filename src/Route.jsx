@@ -7,11 +7,14 @@ import RD from "@/pages/RD";
 import Game from "@/pages/Game";
 import UI from "@/pages/UI";
 import Read from "@/pages/Read";
+import Write from "@/pages/Write";
+import Message from "@/pages/Message";
 import NotFound from "@/pages/NotFound";
 
 const Route = () => {
     return (
         <HashRouter>
+
             <Switch>
                 <ReactRoute path="/recommend" component={Recommend}/>
                 <ReactRoute path="/follow" component={Follow}/>
@@ -20,6 +23,8 @@ const Route = () => {
                 <ReactRoute path="/game" component={Game}/>
                 <ReactRoute path="/ui" component={UI}/>
                 <ReactRoute path="/read" component={Read}/>
+                <ReactRoute path="/write" component={Write}/>
+                <ReactRoute path="/message" component={Message}/>
                 <Redirect path="/" to="/recommend" exact/>
                 <ReactRoute component={NotFound}/>
             </Switch>

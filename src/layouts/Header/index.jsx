@@ -2,8 +2,19 @@ import React from "react";
 import "./index.less";
 import Icon from "@/components/Icon";
 import Button from "@/components/Button";
+import {withRouter} from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
+
+
+    const {history}=props;
+    const handleWrite = () => {
+        console.log(history);
+
+        history.push(`/write`);
+    };
+
+
     return (
         <header className="header">
             <div className="header-main">
@@ -15,7 +26,10 @@ const Header = () => {
                 </div>
                 <ul className="header-main-list">
                     <li>
-                        <Button className="header-main-list-btn">
+                        <Button
+                            onClick={() => handleWrite()}
+                            className="header-main-list-btn"
+                        >
                             写文章
                         </Button>
                     </li>
@@ -26,7 +40,7 @@ const Header = () => {
                     </li>
                     <li className="header-main-list-li header-main-list-user-icon"
                         style={{
-                            backgroundImage:`url("http://baike.kaiwind.com/jplb/201406/02/W020140602369270434118.png")`
+                            backgroundImage: `url("http://baike.kaiwind.com/jplb/201406/02/W020140602369270434118.png")`
                         }}
                     />
                 </ul>
@@ -35,4 +49,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default withRouter(Header);

@@ -33,7 +33,7 @@ function MsgItem(props) {
                 <div className="msg-item-action-item">
                     <div>
                         <Icon className="msg-item-action-item-icon"
-                              type="BellOutlined"
+                              type="LikeOutlined"
                         />
                     </div>
                     <div className="msg-item-action-item-num">{good}</div>
@@ -41,7 +41,7 @@ function MsgItem(props) {
                 <div className="msg-item-action-item">
                     <div>
                         <Icon className="msg-item-action-item-icon"
-                              type="BellOutlined"
+                              type="FireOutlined"
                         />
                     </div>
                     <div className="msg-item-action-item-num">{comment}</div>

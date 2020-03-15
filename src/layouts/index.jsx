@@ -6,13 +6,17 @@ import Nav from './Nav'
 
 const Layout = (props) => {
     const {
-        children
+        children,
+        aside = true,
+        nav = true
     } = props;
     return (
         <>
             <Header/>
-            <Nav/>
-            <Body>
+            {
+                nav ? <Nav/> : null
+            }
+            <Body aside={aside} nav={nav}>
                 {children}
             </Body>
         </>

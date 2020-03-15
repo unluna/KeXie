@@ -3,11 +3,25 @@ import "./index.less"
 
 const Body = (props) => {
     const {
-        children
+        children,
+        aside,
+        nav
     } = props;
     return (
-        <main className="body">
-            <div  className="body-main">
+        <main
+            className={`body ${nav
+                ? "body-has-nav"
+                : "body-not-nav"
+                }`
+            }
+        >
+            <div
+                className={
+                    `${aside
+                        ? "body-short-main"
+                        : "body-long-main"}`
+                }
+            >
                 {children}
             </div>
         </main>

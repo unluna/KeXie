@@ -8,7 +8,7 @@ function FE() {
     // const [aMsgList, setAMsgList] = useState([]);
     const aMsgList = [
         {
-            type: "提问",
+            type: "前端",
             user: "ShiYue",
             time: "46分钟前",
             label: "前端",
@@ -17,7 +17,7 @@ function FE() {
             comment: 7
         },
         {
-            type: "提问",
+            type: "前端",
             user: "ShiYue",
             time: "46分钟前",
             label: "前端",

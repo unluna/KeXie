@@ -1,16 +1,28 @@
 @import "../../assets/styles/color";
 
+.body-has-nav{
+  padding-top: 123px;
+}
+.body-not-nav{
+  padding-top: 72px;
+}
 
 .body {
   height: 100%;
-  padding-top: 123px;
   min-height: 100vh;
   background: @web-body;
   display: flex;
   justify-content: center;
 
-  &-main {
+  &-long-main {
+    width: 100%;
+  }
+
+  &-short-main {
     width: 960px;
+  }
+
+  &-long-main, &-short-main {
     height: 100%;
     display: flex;
     justify-content: space-between;
