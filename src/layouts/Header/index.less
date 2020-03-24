@@ -1,6 +1,15 @@
 @import "../../assets/styles/color";
 
 .header-model {
+  .ant-input:hover {
+    border-color: @button-hover;
+  }
+
+  .ant-input:focus {
+    border-color: @button-hover;
+    box-shadow: rgba(65, 179, 77, 0.5);
+  }
+
   font-size: 14px;
   font-weight: 400;
   font-family: "微软雅黑", "黑体", "Georgia", "Comic Sans MS", sans-serif;
@@ -50,6 +59,8 @@
         width: 38px;
         height: 38px;
         background-image: url("../../assets/images/logo.svg");
+        user-select: none;
+        cursor: pointer;
       }
 
       &-title {
@@ -60,13 +71,32 @@
         color: @title;
         font-family: "微软雅黑", "Georgia", "Comic Sans MS", "黑体", sans-serif;
         line-height: 60px;
+        user-select: none;
+        cursor: pointer;
       }
     }
 
     &-list {
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      //justify-content: center;
+
+      & li{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        span{
+          width: 45px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
 
       &-user-icon {
         width: 30px;
@@ -126,6 +156,15 @@
   width: 336px;
   padding: 24px;
 
+  .ant-input:hover {
+    border-color: @button-hover;
+  }
+
+  .ant-input:focus {
+    border-color: @button-hover;
+    box-shadow: rgba(65, 179, 77, 0.5);
+  }
+
   &-title {
     margin-bottom: 18px;
     font-size: 18px;
@@ -140,8 +179,10 @@
     border-bottom: 12px;
     font-family: "微软雅黑", "黑体", "Georgia", "Comic Sans MS", sans-serif;
   }
-  &-category-ul{
+
+  &-category-ul {
     padding-top: 5px;
+
     &-li {
       font-family: "微软雅黑", "黑体", "Georgia", "Comic Sans MS", sans-serif;
       display: inline-block;
@@ -154,22 +195,24 @@
       transition: all 0.3s;
 
       &:hover {
-        border: 1px solid rgb(65,179,77);
-        background: rgba(65,179,77,0.1);
+        border: 1px solid rgb(65, 179, 77);
+        background: rgba(65, 179, 77, 0.1);
         color: @button-hover;
       }
     }
-    &-li-common{
+
+    &-li-common {
       border: 1px solid @border-bottom;
     }
-    &-li-active{
-      border: 1px solid rgb(65,179,77);
-      background: rgba(65,179,77,0.1);
+
+    &-li-active {
+      border: 1px solid rgb(65, 179, 77);
+      background: rgba(65, 179, 77, 0.1);
       color: @button-hover;
     }
   }
 
-  &-btn{
+  &-btn {
     margin: 20px auto 0;
     width: 86px;
     height: 34px;
@@ -184,8 +227,18 @@
     cursor: pointer;
     transition: all 0.5s;
 
-    &:hover{
-      background: rgba(65,179,77,0.1);
+    &:hover {
+      background: rgba(65, 179, 77, 0.1);
     }
   }
 }
+
+.user-dropdown{
+  width: 157px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+  border-radius: 4px;
+  &-ul{
+
+  }
+}
+

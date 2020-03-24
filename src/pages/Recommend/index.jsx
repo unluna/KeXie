@@ -1,43 +1,51 @@
 import React, {useEffect, useState} from 'react';
-import Editor from 'for-editor';
 
 import Layout from '@/layouts';
 import MsgItem from '@/pages/MsgItem';
+import MainNav from '@/pages/MainNav';
 import "./index.less";
 
 function Recommend() {
-    const aMsgList = [
-        {
-            type: "推荐",
-            user: "ShiYue",
-            time: "46分钟前",
-            label: "关注",
-            title: "前端真好玩~~",
-            good: 50,
-            comment: 7
-        },
-        {
-            type: "推荐",
-            user: "ShiYue",
-            time: "46分钟前",
-            label: "关注",
-            title: "前端真好玩~~",
-            good: 50,
-            comment: 7
-        }
-    ];
+    const [aMsgList, setAMsgList] = useState([]);
+    const [oLabelType, setOLabelType] = useState({});
+    const [oCategoryType, setOCategoryType] = useState({});
+    const [urlKey, setUrlKey] = useState(["recommend"]);
+
+    const changeMsgList = (msg) => {
+        setAMsgList(msg)
+    };
+
+    const getLabelType = (label, category) => {
+        const labelMap = {};
+        label.forEach(item => {
+            labelMap[item._id] = item.name;
+        });
+        setOLabelType(labelMap);
+
+        const categoryMap = {};
+        category.forEach(item => {
+            categoryMap[item._id] = item.name;
+            if(item.name==="游戏"){
+                setUrlKey([item._id,...urlKey]);
+            }
+        });
+        setOCategoryType(categoryMap);
+    };
     return (
         <div className="recommend">
-            <Layout aside={true}>
+            <Layout aside={true} getLabelType={getLabelType}>
                 <div className="main-page-content">
-                    <ul className="main-page-content-header">
-                        <li>热门</li>
-                        <li>最新</li>
-                    </ul>
+                    <MainNav changeMsgList={changeMsgList}
+                             urlType={urlKey}/>
                     <ul className="main-page-content-main">
                         {
                             aMsgList.map((item, index) =>
-                                <MsgItem msg={item} key={index}/>
+                                <MsgItem
+                                    msg={item}
+                                    key={index}
+                                    oLabelType={oLabelType}
+                                    oCategoryType={oCategoryType}
+                                />
                             )
                         }
                     </ul>
@@ -47,7 +55,6 @@ function Recommend() {
                     <div className="main-page-aside-item"/>
                 </aside>
             </Layout>
-            {/*<Editor value={value} onChange={(value) => handleChange(value)}/>*/}
         </div>
     );
 }

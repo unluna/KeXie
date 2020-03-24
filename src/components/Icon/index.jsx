@@ -1,5 +1,10 @@
 import React from "react";
-import {BellOutlined, LikeOutlined,FireOutlined} from "@ant-design/icons";
+import {
+    BellOutlined,
+    LikeOutlined,
+    FireOutlined,
+
+} from "@ant-design/icons";
 
 const Icon = (props) => {
 

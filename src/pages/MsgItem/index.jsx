@@ -1,30 +1,39 @@
 import React, {useEffect, useState} from 'react';
-
+import moment from 'moment';
 import Icon from "@/components/Icon"
 import "./index.less";
 
 function MsgItem(props) {
 
     const {
+        oCategoryType = {},
+        oLabelType = {},
         msg: {
-            type = "",
-            user = "",
-            time = "",
-            label = "",
-            title = "",
-            good = 0,
-            comment = 0
+            _id: id,
+            departments: types = [],
+            msgAuthorName:user = "",
+            dateTime: time = "",
+            labels = [],
+            msgTitle: title = "",
+            goodNum: good = 0,
+            commentNum: comment = 0,
         }
     } = props;
-
-
     return (
         <li className="msg-item">
             <div className="msg-item-hd">
-                <div className="msg-item-hd-label">{type}</div>
+                {
+                    types.map((item, index) => <div className="msg-item-hd-label"
+                                                    key={index}>{oCategoryType[item]}</div>)
+                }
                 <div className="msg-item-hd-info">{user}</div>
-                <div className="msg-item-hd-info">{time}</div>
-                <div className="msg-item-hd-info">{label}</div>
+                <div className="msg-item-hd-info">{moment(time).startOf('hour').fromNow()}</div>
+                {
+                    labels.map((item, index) => {
+                        return <div className="msg-item-hd-info"
+                                    key={index}>{oLabelType[item]}</div>
+                    })
+                }
             </div>
             <div className="msg-item-title">
                 {title}

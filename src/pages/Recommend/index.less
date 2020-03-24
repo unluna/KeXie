@@ -1,44 +1,8 @@
 @import "../../assets/styles/color";
 
-
 .recommend{
   .main-page-content {
     width: 676px;
-
-    &-header {
-      height: 46px;
-      padding: 0 12px;
-      border-bottom: 1px solid @border-bottom;
-      background-color: @white;
-      display: flex;
-      align-items: center;
-
-      & li {
-        height: 46px;
-        padding: 0 15px;
-        font-size: 14px;
-        font-family: "微软雅黑", "Georgia", "Comic Sans MS", "黑体", sans-serif;
-        color: @second-title;
-        line-height: 46px;
-        position: relative;
-        user-select: none;
-        cursor: pointer;
-
-        &:hover {
-          color: @logo;
-        }
-
-        &:not(:last-child)::after {
-          display: table;
-          content: "|";
-          position: absolute;
-          right: -3px;
-          top: 0;
-          color: @title-segmentation;
-          user-select: none;
-        }
-      }
-    }
   }
 
   .main-page-aside{
