@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import moment from 'moment';
 import Icon from "@/components/Icon"
 import "./index.less";
@@ -42,7 +42,7 @@ function MsgItem(props) {
                 <div className="msg-item-action-item">
                     <div>
                         <Icon className="msg-item-action-item-icon"
-                              type="LikeOutlined"
+                              type="Like"
                         />
                     </div>
                     <div className="msg-item-action-item-num">{good}</div>
@@ -50,7 +50,7 @@ function MsgItem(props) {
                 <div className="msg-item-action-item">
                     <div>
                         <Icon className="msg-item-action-item-icon"
-                              type="FireOutlined"
+                              type="Fire"
                         />
                     </div>
                     <div className="msg-item-action-item-num">{comment}</div>

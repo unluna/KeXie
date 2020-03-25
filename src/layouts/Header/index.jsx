@@ -5,7 +5,8 @@ import Icon from "@/components/Icon";
 import Button from "@/components/Button";
 import {withRouter} from 'react-router-dom';
 import {reqLogin, reqMsg} from "@/utils/api"
-import Cookies from 'js-cookie' //可以从操作前端cookie的对象 set()/remove()/get()
+import handleSignOut from "@/utils/handleSignOut"
+import Cookies from 'js-cookie'
 const Header = (props) => {
     const {
         history,
@@ -34,18 +35,18 @@ const Header = (props) => {
         }
     };
 
-    const handleChange = (value, ajaxType) => {
-        value.persist();
+    const handleChange = (ev, ajaxType) => {
+        ev.persist();
 
         switch (ajaxType) {
             case "username":
-                setUsername(value.target.value.trim());
+                setUsername(ev.target.value.trim());
                 break;
             case "password":
-                setPassword(value.target.value.trim());
+                setPassword(ev.target.value.trim());
                 break;
             case "msgTitle":
-                setMsgTitle(value.target.value.trim());
+                setMsgTitle(ev.target.value.trim());
             default:
                 break;
         }
@@ -125,9 +126,7 @@ const Header = (props) => {
                 }
             });
         } else {
-            message.error("登录已失效，请重新登陆！");
-            Cookies.remove("userId");
-            history.push("/")
+            handleSignOut(history,true);
         }
     };
 
@@ -146,6 +145,8 @@ const Header = (props) => {
             setLabelSelect([...labelSelect, id])
         }
     };
+
+
 
     return (
         <header className="header">
@@ -224,7 +225,7 @@ const Header = (props) => {
                                     </Button>
                             }
                             <li>
-                                <Icon type="BellOutlined"
+                                <Icon type="Bell"
                                       className="header-main-list-notice-icon"
                                 />
                             </li>
@@ -233,11 +234,58 @@ const Header = (props) => {
                                 overlay={
                                     <Menu className="user-dropdown">
                                         <ul className="user-dropdown-ul">
-                                            <li>123</li>
-                                            <li>123</li>
-                                            <li>123</li>
-                                            <li>123</li>
-                                            <li>123</li>
+                                            <li onClick={() => {
+                                                handleWrite()
+                                            }}>
+                                                <div>
+                                                    <Icon
+                                                        className="user-dropdown-ul-li-icon"
+                                                        type="Edit"
+                                                    />
+                                                </div>
+                                                <div
+                                                    className="user-dropdown-ul-li-font"
+                                                >写文章
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <Icon
+                                                        className="user-dropdown-ul-li-icon"
+                                                        type="Bank"
+                                                    />
+                                                </div>
+                                                <div className="user-dropdown-ul-li-font">我的主页</div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <Icon
+                                                        className="user-dropdown-ul-li-icon"
+                                                        type="LikeOwn"
+                                                    />
+                                                </div>
+                                                <div className="user-dropdown-ul-li-font">我赞过的</div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <Icon
+                                                        className="user-dropdown-ul-li-icon"
+                                                        type="Setting"
+                                                    />
+                                                </div>
+                                                <div className="user-dropdown-ul-li-font">设置</div>
+                                            </li>
+                                            <li onClick={() => {
+                                                handleSignOut(history)
+                                            }}>
+                                                <div>
+                                                    <Icon
+                                                        className="user-dropdown-ul-li-icon"
+                                                        type="Api"
+                                                    />
+                                                </div>
+                                                <div className="user-dropdown-ul-li-font">退出登录</div>
+                                            </li>
                                         </ul>
                                     </Menu>
                                 }

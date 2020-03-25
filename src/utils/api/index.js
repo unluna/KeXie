@@ -15,12 +15,25 @@ export const reqLogin = ({username, password}) => ajax('/login',
 export const reqMsgType = () => ajax('/msgtype');
 
 // 发布文章
-export const reqMsg = ({msgAuthorId,msgAuthorName, departments, labels, msgContent,msgTitle}) => ajax('/msg', {msgAuthorId,msgAuthorName,departments, labels, msgContent,msgTitle}, 'POST');
+export const reqMsg = ({msgAuthorId, msgAuthorName, departments, labels, msgContent, msgTitle}) => ajax('/msg', {
+    msgAuthorId,
+    msgAuthorName,
+    departments,
+    labels,
+    msgContent,
+    msgTitle
+}, 'POST');
 
 // 获取文章列表
 export const reqMsgList = ({urlType, navType}) => ajax('/msglist', {urlType, navType}, 'POST');
-//获取用户列表
-export const reqUserList = (type) => ajax('/apis/userlist', {type});
+
+// 注册
+export const reqSignUp = (rootId, sendUsername, sendPassword, sendType) => ajax('/signup', {
+    rootId,
+    sendUsername,
+    sendPassword,
+    sendType
+}, 'POST');
 
 //获取当前用户的聊天列表
 export const reqChatMsgList = () => ajax('/apis/msglist');

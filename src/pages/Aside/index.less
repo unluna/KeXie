@@ -1,0 +1,76 @@
+@import "../../assets/styles/color";
+
+.main-page-aside {
+  width: 240px;
+
+  &-item {
+    height: 200px;
+    width: 240px;
+    background: @white;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  &-root {
+    cursor: pointer;
+    position: relative;
+
+    &-font {
+      position: absolute;
+      color: @white;
+      font-size: 26px;
+      font-weight: 400;
+      font-family: "幼圆", "黑体", "微软雅黑", "Georgia", "Comic Sans MS", sans-serif;
+      user-select: none;
+      left: 50%;
+      bottom: 10px;
+      transform: translate(-50%, 0);
+      z-index: 2;
+      letter-spacing: 2px;
+      text-shadow: 1px -1px #CCC;
+    }
+
+    &-img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      transition: all 1s;
+      height: 200px;
+      width: 240px;
+      background: center center no-repeat;
+      background-size: contain;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+.root-model {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "黑体", "微软雅黑", "Georgia", "Comic Sans MS", sans-serif;
+  user-select: none;
+
+  .ant-input:hover {
+    border-color: @button-hover;
+  }
+
+  .ant-input:focus {
+    border-color: @button-hover;
+    box-shadow: rgba(65, 179, 77, 0.5);
+  }
+
+  &-item {
+    margin: 5px 0 20px 0;
+    display: flex;
+    align-items: center;
+    label{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

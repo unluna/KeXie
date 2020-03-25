@@ -1,15 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import "./index.less"
 import {withRouter} from 'react-router-dom';
 
 const Nav = (props) => {
     const {history, match} = props;
-    const [route, setRoute] = useState("");
-
-    useEffect(() => {
-        setRoute(match.path)
-    }, []);
-
+    const route = match.path;
     const oRouteMap = {
         recommend: "推荐",
         follow: "关注",

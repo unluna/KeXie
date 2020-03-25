@@ -1,11 +1,12 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 
 import Layout from '@/layouts';
 import MsgItem from '@/pages/MsgItem'
 import MainNav from '@/pages/MainNav';
+import Aside from '@/pages/Aside';
 import "./index.less";
 
-function FE() {
+const FE = () => {
     const [aMsgList, setAMsgList] = useState([]);
     const [oLabelType, setOLabelType] = useState({});
     const [oCategoryType, setOCategoryType] = useState({});
@@ -49,13 +50,10 @@ function FE() {
                         }
                     </ul>
                 </div>
-                <aside className="main-page-aside">
-                    <div className="main-page-aside-item"/>
-                    <div className="main-page-aside-item"/>
-                </aside>
+                <Aside rules={{fe: true}}/>
             </Layout>
         </div>
     );
-}
+};
 
 export default FE;
