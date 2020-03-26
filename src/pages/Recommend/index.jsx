@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import Layout from '@/layouts';
 import MsgItem from '@/pages/MsgItem';
 import MainNav from '@/pages/MainNav';
+import Aside from '@/pages/Aside';
 import "./index.less";
 
 function Recommend() {
@@ -50,10 +51,7 @@ function Recommend() {
                         }
                     </ul>
                 </div>
-                <aside className="main-page-aside">
-                    <div className="main-page-aside-item"/>
-                    <div className="main-page-aside-item"/>
-                </aside>
+                <Aside rules={{recommend: true}}/>
             </Layout>
         </div>
     );

@@ -6,7 +6,8 @@ import {
     EditTwoTone,
     BankTwoTone,
     SettingTwoTone,
-    ApiTwoTone
+    ApiTwoTone,
+    CloseCircleTwoTone
 } from "@ant-design/icons";
 import {getTwoToneColor, setTwoToneColor} from '@ant-design/icons';
 
@@ -26,7 +27,8 @@ const Icon = (props) => {
         Edit: <EditTwoTone {...props} />,
         Bank: <BankTwoTone {...props} />,
         Setting: <SettingTwoTone {...props} />,
-        Api: <ApiTwoTone {...props} />
+        Api: <ApiTwoTone {...props} />,
+        CloseCircle: <CloseCircleTwoTone {...props} />
     };
     return oComponent[type]
 };

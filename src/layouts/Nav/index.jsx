@@ -1,11 +1,16 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./index.less"
 import {withRouter} from 'react-router-dom';
 
 const Nav = (props) => {
-    const {history, match} = props;
+    const {history, match, navType = "msg"} = props;
+
+    const [routeMap, setRouteMap] = useState({});
+
+
+
     const route = match.path;
-    const oRouteMap = {
+    const oMsgRouteMap = {
         recommend: "推荐",
         follow: "关注",
         fe: "前端",
@@ -14,6 +19,19 @@ const Nav = (props) => {
         ui: "媒体",
         read: "杂谈",
     };
+    const oSettingRouteMap = {
+        usersetting: "个人资料",
+        passwordsetting: "修改密码"
+    };
+    useEffect(() => {
+        if(navType==="msg"){
+            setRouteMap(oMsgRouteMap);
+        }else {
+            setRouteMap(oSettingRouteMap);
+        }
+    }, [navType]);
+
+
     const handleNavClick = (route) => {
         history.push(`/${route}`);
     };
@@ -21,7 +39,7 @@ const Nav = (props) => {
         <nav className="nav">
             <ul className="nav-list">
                 {
-                    Object.keys(oRouteMap).map((item, index) =>
+                    Object.keys(routeMap).map((item, index) =>
                         <li key={index}
                             className={
                                 route === `/${item}`
@@ -32,7 +50,7 @@ const Nav = (props) => {
                                 handleNavClick(item)
                             }
                         >
-                            {oRouteMap[item]}
+                            {routeMap[item]}
                         </li>
                     )
                 }

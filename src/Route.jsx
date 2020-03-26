@@ -9,6 +9,7 @@ import UI from "@/pages/UI";
 import Read from "@/pages/Read";
 import Write from "@/pages/Write";
 import Message from "@/pages/Message";
+import UserSetting from "@/pages/UserSetting";
 import NotFound from "@/pages/NotFound";
 
 const Route = () => {
@@ -24,7 +25,9 @@ const Route = () => {
                 <ReactRoute path="/ui" component={UI}/>
                 <ReactRoute path="/read" component={Read}/>
                 <ReactRoute path="/write" component={Write}/>
-                <ReactRoute path="/message" component={Message}/>
+                <ReactRoute path="/message/:id" component={Message}/>
+                <ReactRoute path="/usersetting" component={UserSetting}/>
+                {/*<ReactRoute path="/passwordsetting" component={Setting}/>*/}
                 <Redirect path="/" to="/recommend" exact/>
                 <ReactRoute component={NotFound}/>
             </Switch>

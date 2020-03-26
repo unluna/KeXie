@@ -34,9 +34,13 @@ export const reqSignUp = (rootId, sendUsername, sendPassword, sendType) => ajax(
     sendPassword,
     sendType
 }, 'POST');
+// modeify
 
-//获取当前用户的聊天列表
-export const reqChatMsgList = () => ajax('/apis/msglist');
+// 修改个人信息
+export const reqModeify = (userId, modifyType, modifyValue) => ajax('/modify', {
+    userId, modifyType, modifyValue
+}, 'POST');
 
-//修改指定消息为已读
-export const reqReadMsg = (from) => ajax('/apis/readmsg', {from}, 'POST');
+// 获取个人信息
+export const reqUserInfo = (userId) => ajax('/userinfo',{userId},'POST');
+

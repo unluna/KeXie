@@ -12,7 +12,8 @@ const Layout = (props) => {
         aside = true,
         nav = true,
         markdownValue = "",
-        getLabelType
+        getLabelType,
+        navType
     } = props;
     const [aLabelType, setALabelType] = useState([]);
     const [aCategoryType, setACategoryType] = useState([]);
@@ -53,7 +54,7 @@ const Layout = (props) => {
                 aCategoryType={aCategoryType}
             />
             {
-                nav ? <Nav/> : null
+                nav ? <Nav navType={navType}/> : null
             }
             <Body aside={aside} nav={nav}>
                 {children}

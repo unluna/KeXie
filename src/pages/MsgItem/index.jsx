@@ -1,9 +1,10 @@
 import React from 'react';
 import moment from 'moment';
 import Icon from "@/components/Icon"
+import {withRouter} from 'react-router-dom';
 import "./index.less";
 
-function MsgItem(props) {
+const MsgItem = (props) => {
 
     const {
         oCategoryType = {},
@@ -11,16 +12,24 @@ function MsgItem(props) {
         msg: {
             _id: id,
             departments: types = [],
-            msgAuthorName:user = "",
+            msgAuthorName: user = "",
             dateTime: time = "",
             labels = [],
             msgTitle: title = "",
             goodNum: good = 0,
             commentNum: comment = 0,
-        }
+        },
+        history
     } = props;
+
+    const handleToDetail = () => {
+        history.push(`/message/${id}`)
+    };
+
     return (
-        <li className="msg-item">
+        <li className="msg-item"
+            onClick={() => handleToDetail()}
+        >
             <div className="msg-item-hd">
                 {
                     types.map((item, index) => <div className="msg-item-hd-label"
@@ -60,4 +69,4 @@ function MsgItem(props) {
     );
 }
 
-export default MsgItem;
+export default withRouter(MsgItem);

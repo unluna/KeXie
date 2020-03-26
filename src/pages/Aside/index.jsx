@@ -92,7 +92,7 @@ const Aside = (props) => {
                     <div className="main-page-aside-item main-page-aside-root"
                          onClick={() => handleShowRootModel()}
                     >
-                        <div className="main-page-aside-root-font">加入我们</div>
+                        {/*<div className="main-page-aside-root-font">加入我们</div>*/}
                         <div className="main-page-aside-root-img"
                              style={{backgroundImage: `url('${asideRootImg}')`}}
                         >

@@ -35,8 +35,7 @@ const FE = () => {
         <div className="fe">
             <Layout aside={true} getLabelType={getLabelType}>
                 <div className="main-page-content">
-                    <MainNav changeMsgList={changeMsgList}
-                             urlType={urlKey}/>
+                    <MainNav changeMsgList={changeMsgList} urlType={urlKey}/>
                     <ul className="main-page-content-main">
                         {
                             aMsgList.map((item, index) =>

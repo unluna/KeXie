@@ -59,3 +59,9 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+html{
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+    text-rendering: optimizeLegibility;
+
+}

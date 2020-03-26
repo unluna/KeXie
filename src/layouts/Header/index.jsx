@@ -4,9 +4,10 @@ import "./index.less";
 import Icon from "@/components/Icon";
 import Button from "@/components/Button";
 import {withRouter} from 'react-router-dom';
-import {reqLogin, reqMsg} from "@/utils/api"
-import handleSignOut from "@/utils/handleSignOut"
-import Cookies from 'js-cookie'
+import {reqLogin, reqMsg} from "@/utils/api";
+import handleSignOut from "@/utils/handleSignOut";
+import Cookies from 'js-cookie';
+
 const Header = (props) => {
     const {
         history,
@@ -23,7 +24,7 @@ const Header = (props) => {
     const [categorySelect, setCategorySelect] = useState([]);
     const [labelSelect, setLabelSelect] = useState([]);
     const url = history.location.pathname;
-
+    const headerImg = Cookies.get("userHeader");
     useEffect(() => {
         readIsLogin()
     }, []);
@@ -126,7 +127,7 @@ const Header = (props) => {
                 }
             });
         } else {
-            handleSignOut(history,true);
+            handleSignOut(history, true);
         }
     };
 
@@ -145,7 +146,6 @@ const Header = (props) => {
             setLabelSelect([...labelSelect, id])
         }
     };
-
 
 
     return (
@@ -266,7 +266,7 @@ const Header = (props) => {
                                                 </div>
                                                 <div className="user-dropdown-ul-li-font">我赞过的</div>
                                             </li>
-                                            <li>
+                                            <li onClick={() => history.push("/usersetting")}>
                                                 <div>
                                                     <Icon
                                                         className="user-dropdown-ul-li-icon"
@@ -294,7 +294,7 @@ const Header = (props) => {
                                     <div
                                         className="header-main-list-user-icon"
                                         style={{
-                                            backgroundImage: `url("http://baike.kaiwind.com/jplb/201406/02/W020140602369270434118.png")`
+                                            backgroundImage: `url("${headerImg}")`
                                         }}/>
                                 </li>
                             </Dropdown>

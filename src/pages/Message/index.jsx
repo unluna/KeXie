@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from './CodeBlock'
 import Layout from '@/layouts';
+import Aside from '@/pages/Aside';
 import "./index.less";
 
 function Message() {
@@ -19,10 +20,7 @@ function Message() {
                         }}
                     />
                 </div>
-                <aside className="main-page-aside">
-                    <div className="main-page-aside-item"/>
-                    <div className="main-page-aside-item"/>
-                </aside>
+                <Aside rules={{message: true}}/>
             </Layout>
         </div>
     );
