@@ -29,7 +29,7 @@ const Route = () => {
                 <ReactRoute path="/usersetting" component={UserSetting}/>
                 {/*<ReactRoute path="/passwordsetting" component={Setting}/>*/}
                 <Redirect path="/" to="/recommend" exact/>
-                <ReactRoute component={NotFound}/>
+                <ReactRoute path="/404" component={NotFound}/>
             </Switch>
         </HashRouter>
     );

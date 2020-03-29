@@ -8,6 +8,7 @@ const handleSignOut=(history,err)=>{
     Cookies.remove("userId");
     Cookies.remove("userName");
     Cookies.remove("userHeader");
+    Cookies.remove("userType");
     history.push("/");
 };
 

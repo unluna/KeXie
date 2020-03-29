@@ -108,11 +108,9 @@ const Header = (props) => {
             return
         }
         const userId = Cookies.get('userId');
-        const userName = Cookies.get('userName');
-        if (userId && userName) {
+        if (userId) {
             reqMsg({
                 msgAuthorId: userId,
-                msgAuthorName: userName,
                 departments: categorySelect,
                 labels: labelSelect,
                 msgContent: markdownValue,

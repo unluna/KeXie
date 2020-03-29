@@ -15,9 +15,8 @@ export const reqLogin = ({username, password}) => ajax('/login',
 export const reqMsgType = () => ajax('/msgtype');
 
 // 发布文章
-export const reqMsg = ({msgAuthorId, msgAuthorName, departments, labels, msgContent, msgTitle}) => ajax('/msg', {
+export const reqMsg = ({msgAuthorId, departments, labels, msgContent, msgTitle}) => ajax('/msg', {
     msgAuthorId,
-    msgAuthorName,
     departments,
     labels,
     msgContent,
@@ -44,3 +43,5 @@ export const reqModeify = (userId, modifyType, modifyValue) => ajax('/modify', {
 // 获取个人信息
 export const reqUserInfo = (userId) => ajax('/userinfo',{userId},'POST');
 
+// 获取个人信息
+export const reqMsgInfo = (msgId) => ajax('/msginfo',{msgId},'POST');

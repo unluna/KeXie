@@ -5,20 +5,79 @@
   padding: 24px;
   width: 700px;
 
-  h1, h2, h3, h4, h5, h6, li, p, font, div, table,thead,tbody tr, td, th,strong,em {
+  &-hd {
+    height: 43px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &-img {
+      height: 40px;
+      width: 40px;
+      margin-right: 12px;
+      border-radius: 50%;
+      background: center center no-repeat;
+      background-size: contain;
+    }
+
+    &-ctt {
+      height: 40px;
+      width: 400px;
+
+      &-top {
+        display: flex;
+        align-items: center;
+
+        &-user {
+          font-size: 14px;
+          font-weight: 700;
+          color: @msg-font-title;
+          margin-right: 10px;
+        }
+
+        &-level {
+          font-size: 8px;
+          font-weight: 700;
+          color:@logo;
+        }
+      }
+
+      &-btm {
+        display: flex;
+        align-items: center;
+
+        &-date{
+          font-size: 12px;
+          color: @msg-font-date;
+          margin-right: 10px;
+          font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+        }
+
+        &-edit{
+          cursor: pointer;
+          user-select: none;
+          font-size: 12px;
+          color: @msg-font-edit;
+          font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+        }
+      }
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6, li, p, font, div, table, thead, tbody tr, td, th, strong, em {
     font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
     text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, h5, h6, li, p, table,thead,tbody, tr, td, th,strong,em {
+  h1, h2, h3, h4, h5, h6, li, p, table, thead, tbody, tr, td, th, strong, em {
     color: #333;
   }
 
-  strong,em,div,p{
+  strong, em, div, p {
     font-size: 15px;
   }
 
-  em{
+  em {
     font-style: italic;
   }
 
@@ -140,28 +199,30 @@
     }
   }
 
-  table{
+  table {
     border-collapse: separate;
     border-spacing: 2px;
-    display: inline-block!important;
+    display: inline-block !important;
     font-size: 14px;
     width: auto;
     max-width: 100%;
     overflow: auto;
     border: 1px solid #f6f6f6;
 
-    thead{
+    thead {
       background: #f6f6f6;
       color: #000;
       text-align: left;
       display: table-header-group;
       vertical-align: middle;
       border-color: inherit;
-      tr{
+
+      tr {
         display: table-row;
         vertical-align: inherit;
         border-color: inherit;
-        th{
+
+        th {
           display: table-cell;
           vertical-align: inherit;
           font-weight: bold;
@@ -171,16 +232,17 @@
       }
     }
 
-    tbody{
+    tbody {
       display: table-row-group;
       vertical-align: middle;
       border-color: inherit;
 
-      tr{
+      tr {
         display: table-row;
         vertical-align: inherit;
         border-color: inherit;
-        td{
+
+        td {
           min-width: 10rem;
           padding: 1rem .6rem;
           line-height: 2rem;
