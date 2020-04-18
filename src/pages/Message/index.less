@@ -38,7 +38,7 @@
         &-level {
           font-size: 8px;
           font-weight: 700;
-          color:@logo;
+          color: @logo;
         }
       }
 
@@ -46,19 +46,121 @@
         display: flex;
         align-items: center;
 
-        &-date{
+        &-date {
           font-size: 12px;
           color: @msg-font-date;
           margin-right: 10px;
           font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
         }
 
-        &-edit{
+        &-edit {
           cursor: pointer;
           user-select: none;
           font-size: 12px;
           color: @msg-font-edit;
           font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+        }
+      }
+    }
+  }
+
+  .comment-box {
+    &-title {
+      text-align: center;
+      color: @comment-font;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      margin-right: 1rem;
+    }
+
+    &-form {
+      display: flex;
+      //flex-direction: column;
+      background-color: @comment-background;
+      padding: 1rem;
+
+    }
+
+    &-list {
+      .comment {
+        display: flex;
+        width: 100%;
+
+        &-content {
+          margin-top: .55rem;
+          font-size: 0.85rem;
+          line-height: 1.833rem;
+          word-wrap: break-word;
+          white-space: pre-wrap;
+          word-break: break-all;
+          color: #505050;
+        }
+
+        &-date {
+          display: flex;
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-between;
+          margin: 1rem 0;
+          font-size: 0.45rem;
+          font-weight: 400;
+          color: @comment-font;
+
+          &-action {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+
+            .action-like {
+              display: flex;
+              font-size: 8px;
+            }
+
+            .action-reply {
+              color: @comment-font;
+            }
+
+            .action-title {
+              margin-left: .25rem;
+            }
+
+          }
+        }
+
+        &-contentBox {
+          width: 100%;
+        }
+
+        .reply-form {
+          background: @comment-background;
+          padding: 1rem;
+          border: 1px solid #f1f1f2;
+
+          &-commit {
+            display: flex;
+            justify-content: flex-end;
+            margin: .65rem 0;
+          }
+        }
+      }
+
+
+      .comment-subComment {
+        margin: 1rem 0;
+        background-color: @comment-background;
+        border-radius: 3px;
+
+        .subComment {
+          padding: 1rem;
+        /*  margin: 1rem;*/
+          &-reply {
+            background: white;
+            padding: 1rem;
+          }
         }
       }
     }
