@@ -5,17 +5,17 @@
  * @author clarencekong<clarencekong@163.com>
  * Copyright 2020. All Rights Reserved.
  */
-export  const releaseTime = (recordTime) => {
+export const releaseTime = (recordTime) => {
     // console.log(+new Date())
     const duration = (+new Date() - Date.parse(recordTime)) / 1000;
     let displayTime = '';
     if (duration < 60) {
         displayTime = `${Math.round(Math.max(duration, 1))} 秒前`;
-    }else if (duration < 60*60) {
+    } else if (duration < 60 * 60) {
         displayTime = `${Math.round(duration / 60)} 分钟前`;
-    }else if (duration < 60*60*24) {
+    } else if (duration < 60 * 60 * 24) {
         displayTime = `${Math.round(duration / 60 / 60)} 小时前`;
-    }else {
+    } else {
         displayTime = dateTime(recordTime);
     }
     return displayTime;

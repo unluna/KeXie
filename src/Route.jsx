@@ -15,7 +15,6 @@ import NotFound from "@/pages/NotFound";
 const Route = () => {
     return (
         <HashRouter>
-
             <Switch>
                 <ReactRoute path="/recommend" component={Recommend}/>
                 <ReactRoute path="/follow" component={Follow}/>

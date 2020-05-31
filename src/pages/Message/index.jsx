@@ -53,7 +53,9 @@ const Message = (props) => {
     }, []);
 
     const res = {
-        code: 0, "msg": "success", "data": {
+        code: 0,
+        "msg": "success",
+        "data": {
             "count": 36,
             "targetId": "5e82acbb6fb9a03c5a7a8b85",
             comments: [{
@@ -442,15 +444,21 @@ const Message = (props) => {
         4: 'https://b-gold-cdn.xitu.io/v3/static/img/lv-4.2c3fafd.svg',
         5: 'https://b-gold-cdn.xitu.io/v3/static/img/lv-5.f8d5198.svg',
         6: 'https://b-gold-cdn.xitu.io/v3/static/img/lv-6.74bd93a.svg',
-
     };
-    const comments = res.data.comments;
-    const userDefaultHeader = userInfo.header;
+    const {
+        data: {
+            comments
+        }
+    } = res;
+
+    const {
+        header: userDefaultHeader
+    } = userInfo;
     const hashMapComments = (id) => {
         let mapComments = hashComments.id === undefined ? new Map() : hashComments;
         for (let comment of comments) {
             for (let subComment of comment.topComment)
-                mapComments.set(subComment.id, subComment.id === id ? "block" : "none")
+                mapComments.set(subComment.id, subComment.id === id ? "block" : "none");
             mapComments.set(comment.id, comment.id === id ? "block" : "none")
         }
         return mapComments
@@ -464,16 +472,14 @@ const Message = (props) => {
 
         const {id, content, userInfo: {username, avatarLarge, level}, likesCount, createdAt, updateAt, topComment} = comment;
         return (
-            <li className={'comment'} key={id}>
+            <li className={'comment'} key={index}>
                 <img className={"avatar"} src={avatarLarge || userDefaultHeader} alt="avatar"/>
                 <div className={"comment-contentBox"}>
                     <h5>{username} <img style={{display: levelImg[level]}} src={levelImg[level]}
                                         alt={`lv-${level}`}/></h5>
                     <p className={"comment-content"}>{content}</p>
-
                     <div className={"comment-date"}>
                         <time>{releaseTime(updateAt || createdAt)}</time>
-
                         <div className={"comment-date-action"}>
                             <div className="action-like action">
                                 <svg data-v-0f270e9c="" aria-hidden="true" width="16" height="16" viewBox="0 0 20 20"
@@ -489,12 +495,11 @@ const Message = (props) => {
                             </div>
                             <Button onClick={() => setReply(id)} className={"action-reply"} type={"link"}>回复</Button>
                         </div>
-
-
                     </div>
                     <div className="reply-form" style={{display: hashComments.get(id)}}>
                         <Input placeholder={`回复${username}:`}/>
-                        <div className={"reply-form-commit"}><Button type={"primary"}>评论</Button>
+                        <div className={"reply-form-commit"}>
+                            <Button type={"primary"}>评论</Button>
                         </div>
                     </div>
                     <div className={"comment-subComment"}>
@@ -553,7 +558,7 @@ const Message = (props) => {
                 </div>
             </li>
         )
-    }
+    };
 
 
     return (
@@ -589,7 +594,6 @@ const Message = (props) => {
                             <Button type={"primary"}>评论</Button>
                         </div>
                         <ul className="comment-box-list">
-
                             {
                                 comments.map((comment, index
                                 ) => initComments(comment))
@@ -597,12 +601,10 @@ const Message = (props) => {
                         </ul>
                     </div>
                 </div>
-
                 <Aside rules={{message: true}}/>
-
             </Layout>
         </div>
     );
-}
+};
 
 export default withRouter(Message);
